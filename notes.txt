@@ -1,1 +1,4 @@
 Will use jsonserver to test api
+mumblue-ui for icons
+yarn add --dev json-server
+json-server --watch db.json --port 8000 -> runs a mock server on port 8000
