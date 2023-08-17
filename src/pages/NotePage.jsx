@@ -35,6 +35,7 @@ const NotePage = () => {
         },
       }
     );
+    nav("/");
   };
 
   const handleSubmit = () => {
@@ -52,6 +53,7 @@ const NotePage = () => {
           },
         }
       );
+      nav("/");
     };
 
     // if note is not new or if note does not have any content in its body
@@ -77,9 +79,9 @@ const NotePage = () => {
           "Content-Type": "application/json",
         },
       });
+      nav("/");
     };
     deleteNote();
-    nav("/");
   };
 
   // let noteVal = notes.find((note) => note.id === Number(id));
@@ -88,14 +90,12 @@ const NotePage = () => {
       <div id="note-header">
         <div className="space-between">
           <div id="go_back">
-            <Link to="/">
-              <div onClick={handleSubmit} className="note-back-button">
-                <div>
-                  <AiOutlineArrowLeft />
-                  Go Back
-                </div>
+            <div onClick={handleSubmit} className="note-back-button">
+              <div>
+                <AiOutlineArrowLeft />
+                Go Back
               </div>
-            </Link>
+            </div>
           </div>
           <div id="delete">
             {noteId !== "new" ? (
