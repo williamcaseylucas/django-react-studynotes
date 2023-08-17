@@ -1,0 +1,12 @@
+python -m venv ./venv
+
+to activate: source ./venv/bin/activate
+check with pip freeze
+
+pip install django
+django-admin startproject mynotes
+cd mynotes
+python manage.py runserver
+
+we will put entire api inside of an app: 
+    python manage.py startapp api
