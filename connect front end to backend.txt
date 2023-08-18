@@ -1,0 +1,10 @@
+# Connect the two in the same Django app
+
+yarn build
+
+---
+
+from django:
+base settings: dirs: [base__dir / 'frontend/build]
+then add staticfiles_dirs = [BASE_DIR / 'frontend/build/static']
+then add from django.views.generic import TemplateViews and add new url of '' and TemplateView.as_view(template_name='index.html')

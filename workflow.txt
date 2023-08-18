@@ -19,3 +19,7 @@ python manage.py migrate
 python manage.py createsuperuser
 
 # Use djangorestframework for more versitility
+
+Serializers are meant to convert python objects to JSON objects
+
+python -m pip install django-cors-headers

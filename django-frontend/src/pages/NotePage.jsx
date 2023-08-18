@@ -13,7 +13,7 @@ const NotePage = () => {
   // Run this whenever noteId changes
   useEffect(() => {
     const getNote = async () => {
-      const res = await axios.get(`http://localhost:8000/notes/${noteId}`);
+      const res = await axios.get(`api/notes/${noteId}`);
       const { data } = res;
       setNote(data);
     };
@@ -24,7 +24,7 @@ const NotePage = () => {
 
   const createNote = async () => {
     await axios.post(
-      `http://localhost:8000/notes/`,
+      `api/notes/create/`,
       {
         ...note,
         updated: new Date(),
@@ -42,7 +42,7 @@ const NotePage = () => {
     // Need to update date until Django is setup
     const updateNote = async () => {
       await axios.put(
-        `http://localhost:8000/notes/${noteId}`,
+        `api/notes/${noteId}/update/`,
         {
           ...note,
           updated: new Date(),
@@ -74,7 +74,7 @@ const NotePage = () => {
     //       updated: new Date(),
     //     },
     const deleteNote = async () => {
-      await axios.delete(`http://localhost:8000/notes/${noteId}`, {
+      await axios.delete(`api/notes/${noteId}/delete/`, {
         headers: {
           "Content-Type": "application/json",
         },

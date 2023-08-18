@@ -8,7 +8,7 @@ const NotesListPage = () => {
 
   useEffect(() => {
     const getNotes = async () => {
-      const res = await axios.get("http://localhost:8000/notes");
+      const res = await axios.get(`api/notes`);
       const { data } = res;
       setNotes(data);
     };

@@ -13,7 +13,10 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
+
+# print("base_dir: ", BASE_DIR)
+print("base_dir: ", Path(__file__).resolve().parent.parent.parent)
 
 
 # Quick-start development settings - unsuitable for production
@@ -39,9 +42,11 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "api.apps.ApiConfig",  # Add to our apps
     "rest_framework",
+    "corsheaders",
 ]
 
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -56,7 +61,7 @@ ROOT_URLCONF = "mynotes.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [BASE_DIR / "django-frontend/build"],  # added this
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -123,3 +128,8 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# What we add to resolve CORS issues
+CORS_ALLOW_ALL_ORIGINS = True  # added this
+
+STATICFILES_DIRS = [BASE_DIR / "django-frontend/build/static"]  # added this
