@@ -10,3 +10,12 @@ python manage.py runserver
 
 we will put entire api inside of an app: 
     python manage.py startapp api
+
+# apply migrations
+python manage.py makemigrations
+python manage.py migrate
+
+# Create super user
+python manage.py createsuperuser
+
+# Use djangorestframework for more versitility
